@@ -1,0 +1,29 @@
+class programNumbers:
+    def __init__(self, number1,number2,number3,number4):
+        self.number1 = number1
+        self.number2 = number2
+        self.number3 = number3
+        self.number4 = number4
+    def displayNumbers(self):
+        print(self.number1,self.number2,self.number3,self.number4)
+    def instruction(self):
+        print("Memorize a card and I will make it disappear.")
+        input ("Please enter to continue.")
+    def askQuestion (self):
+        print ("Did I remove the card you thought of?")
+    
+    def answerPlaye (self):
+        answerplayer = input ("Please enter Y/N:  ").upper()       
+        if answerplayer == "Y":
+            print ("I'm the best mind reader and I have just blown your mind!")
+        else:
+            print ("Try again")
+  
+firstnumbers1 = programNumbers("4H", "8C", "10S", "AS")
+firstnumbers1.displayNumbers()
+firstnumbers1.instruction()
+print('\n'*40)
+firstnumbers2 = programNumbers("AH", "10H", "JC", "9Q")
+firstnumbers2.displayNumbers()
+firstnumbers2.askQuestion()
+firstnumbers2.answerPlaye()
