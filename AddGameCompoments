@@ -9,3 +9,12 @@ class programNumbers:
     def instruction(self):
         print("Memorize a card and I will make it disappear.")
         input ("Please enter to continue.")
+    def askQuestion (self):
+        print ("Did I remove the card you thought of?")
+    
+    def answerPlaye (self):
+        answerplayer = input ("Please enter Y/N:  ").upper()       
+        if answerplayer == "Y":
+            print ("I'm the best mind reader and I have just blown your mind!")
+        else:
+            print ("Try again")
