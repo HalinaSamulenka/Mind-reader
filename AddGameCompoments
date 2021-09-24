@@ -6,3 +6,6 @@ class programNumbers:
         self.number4 = number4
     def displayNumbers(self):
         print(self.number1,self.number2,self.number3,self.number4)
+    def instruction(self):
+        print("Memorize a card and I will make it disappear.")
+        input ("Please enter to continue.")
