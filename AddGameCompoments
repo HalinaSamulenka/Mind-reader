@@ -1,0 +1,6 @@
+class programNumbers:
+    def __init__(self, number1,number2,number3,number4):
+        self.number1 = number1
+        self.number2 = number2
+        self.number3 = number3
+        self.number4 = number4
