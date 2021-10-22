@@ -1,30 +1,46 @@
-import os
+import random
+
 class programNumbers:
-    def __init__(self, number1,number2,number3,number4):
+    def __init__(self, number1, number2, number3, number4):
         self.number1 = number1
         self.number2 = number2
         self.number3 = number3
         self.number4 = number4
+
+    def randomcard(self):
+        card_points = ['A', 'K', 'Q', 'J', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        card_signs = ['H', 'C', 'D', 'S']
+        random_point = random.choice(card_points)
+        random_sign = random.choice(card_signs)
+        random_card = random_point+random_sign
+        return random_card
+
     def displayNumbers(self):
-        print(self.number1,self.number2,self.number3,self.number4)
+        print(self.number1, self.number2, self.number3, self.number4)
+
     def instruction(self):
         print("Memorize a card and I will make it disappear.")
-        input ("Please enter to continue.")
-    def askQuestion (self):
-        print ("Did I remove the card you thought of?")
-    
-    def answerPlaye (self):
-        answerplayer = input ("Please enter Y/N:  ").upper()       
+        input("Please enter to continue.")
+
+    def askQuestion(self):
+        print("Did I remove the card you thought of?")
+
+    def answerPlaye(self):
+        answerplayer = input("Please enter Y/N:  ").upper()
         if answerplayer == "Y":
-            print ("I'm the best mind reader and I have just blown your mind!")
+            print("I'm the best mind reader and I have just blown your mind!")
         else:
-            print ("Try again")
-  
+            print("Try again")
+
 firstnumbers1 = programNumbers("4H", "8C", "10S", "AS")
 firstnumbers1.displayNumbers()
 firstnumbers1.instruction()
-print('\n'*40)
-firstnumbers2 = programNumbers("AH", "10H", "JC", "9Q")
+print('\n' * 40)
+num_ran1 = firstnumbers1.randomcard()
+num_ran2 = firstnumbers1.randomcard()
+num_ran3 = firstnumbers1.randomcard()
+
+firstnumbers2 = programNumbers(num_ran1, "4H", num_ran2, num_ran3)
 firstnumbers2.displayNumbers()
 firstnumbers2.askQuestion()
 firstnumbers2.answerPlaye()
