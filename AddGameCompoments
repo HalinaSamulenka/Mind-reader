@@ -37,7 +37,7 @@ class programNumbers:
         if answerplayer == "Y":
             print("I'm the best mind reader and I have just blown your mind!")
         else:
-            print("Try again")
+            print("Please, Try again")
 
 firstnumbers1 = programNumbers("4H", "8C", "10S", "AS")
 firstnumbers1.displayNumbers()
