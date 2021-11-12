@@ -1,53 +1,63 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from os import system
+from PyQt5.QtWidgets import*
 import sys
 
-from os import system
+def numbers():
+    if msg.text():
+        msg.setText("AH  10H  JC   9Q\n\nDid I remove the card you thought of? ")
+    else:
+        msg.setText("")
+        #msg.setText ("Memorise a card and I will make it disappear.")
 
-import random
+def answerYes():
+    if msg.text():
+        msg.setText("I'm the best mind reader and I have just blown your mind!")
+    else:
+        msg.setText("")
+def answerNo():
+    if msg.text():
+        msg.setText("Try again")
+    else:
+        msg.setText("")
+App = QApplication(sys.argv)
+window = QWidget()
+window.setWindowTitle('Game')
+layout = QVBoxLayout()
+App.setStyle('Fusion')
 
-class programNumbers:
-    def __init__(self, number1, number2, number3, number4):
-        self.number1 = number1
-        self.number2 = number2
-        self.number3 = number3
-        self.number4 = number4
+window.setStyleSheet( """
+    QWidget {
+            border: 20px solid blue;
+            border-radius: 10px;
+            position: center;
+            background-color: rgba(0,0,100,50);
+            width:10em;
+            height: 1em;
+            border-width: 2px;
+            font: 25px;
+            }
+    
+""")
 
-    def randomcard(self):
-        card_points = ['A', 'K', 'Q', 'J', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-        card_signs = ['H', 'C', 'D', 'S']
-        random_point = random.choice(card_points)
-        random_sign = random.choice(card_signs)
-        random_card = random_point+random_sign
-        return random_card
+btn = QPushButton ('Continue')
+btn.clicked.connect(numbers)
+btn1 = QPushButton ('Yes')
+btn1.clicked.connect(answerYes)
+btn2 = QPushButton ('No')
+btn2.clicked.connect(answerNo)
 
-    def displayNumbers(self):
-        print(self.number1, self.number2, self.number3, self.number4)
+msg=QLabel('4H 8C 10S AS\n\nMemorise a card and I will make it disappear.')
+layout.addWidget(msg)
+layout.addWidget(btn)
+layout.addWidget(btn1)
+layout.addWidget(btn2)
 
-    def instruction(self):
-        print("Memorize a card and I will make it disappear.")
-        input("Please enter to continue.")
+window.setLayout(layout)
+window.show()
+sys.exit(App.exec_())
 
-    def askQuestion(self):
-        print("Did I remove the card you thought of?")
 
-    def answerPlaye(self):
-        answerplayer = input("Please enter Y/N:  ").upper()
-        if answerplayer == "Y":
-            print("I'm the best mind reader and I have just blown your mind!")
-        else:
-            print("Try again")
 
-firstnumbers1 = programNumbers("4H", "8C", "10S", "AS")
-firstnumbers1.displayNumbers()
-firstnumbers1.instruction()
-print('\n' * 40)
-num_ran1 = firstnumbers1.randomcard()
-num_ran2 = firstnumbers1.randomcard()
-num_ran3 = firstnumbers1.randomcard()
-
-firstnumbers2 = programNumbers(num_ran1, "4H", num_ran2, num_ran3)
-firstnumbers2.displayNumbers()
-firstnumbers2.askQuestion()
-firstnumbers2.answerPlaye()
